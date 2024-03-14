@@ -1,24 +1,29 @@
 package API;
 
-import Entry.DashboardController;
 import JDBC.MySQLservice;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 
 public class APIservice {
 
+    private static DataInputStream reader = null;
+    private static DataOutputStream writer = null;
 
-    public static void handleClient(Socket clientSocket){
+    public static synchronized void handleClient(Socket clientSocket){
 
         try{
-            DataInputStream reader = new DataInputStream(clientSocket.getInputStream());
+            if(reader == null)
+                reader = new DataInputStream(clientSocket.getInputStream());
+
+            if(writer == null)
+                writer = new DataOutputStream(clientSocket.getOutputStream());
 
             String request = reader.readUTF();
 
             RequestTypes requestType = determineRequest(request);
-
-           DataOutputStream writer = new DataOutputStream(clientSocket.getOutputStream());
 
             switch (requestType){
 
@@ -52,16 +57,17 @@ public class APIservice {
     private static RequestTypes determineRequest(String req){
 
         if(req.length() >=10 ) {
-            if (req.substring(0, 10).equals("API:LOGIN:")) return RequestTypes.LOGIN;
+            if (req.startsWith("API:LOGIN:")) return RequestTypes.LOGIN;
         }
         if(req.length() >= 13){
-            if (req.substring(0,13).equals("API:REGISTER:")) return RequestTypes.REGISTER;
+            if (req.startsWith("API:REGISTER:")) return RequestTypes.REGISTER;
         }
 
         return RequestTypes.MESSAGE;
     }
 
     private static String processLoginRequest(String request){
+        if(request.length() == 1) return "Empty String";
         String[] parts = request.split(",");
         String username = parts[0];
         String password = parts[1];

@@ -1,6 +1,5 @@
 package JDBC;
 
-import java.io.IOException;
 import java.sql.*;
 
 public class MySQLservice {
@@ -17,7 +16,7 @@ public class MySQLservice {
         try {
             connection = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
         }catch (SQLException e){
-            System.err.println("Error during estabilishing connection to SQL server");
+            System.err.println("Error during establishing connection to SQL server");
         }
 
     }
@@ -55,23 +54,23 @@ public class MySQLservice {
 
             if(resultSet.next()){
                 if(resultSet.getString("password").equals(password)){
-                    System.out.println("Auth Sucessful SQL says yes");
+                    System.out.println("Auth Successful SQL says yes");
                     return "Success";
                 }
                 else{
-                    System.out.println("Auth Unsucessful SQL wrong pass");
+                    System.out.println("Auth Unsuccessful SQL wrong pass");
                     return "Wrong Password";
                 }
             }
             else{
-                System.out.println("Auth Unsucessful SQL wrong user");
+                System.out.println("Auth Unsuccessful SQL wrong user");
                 return "Wrong Username";
             }
 
         }catch(SQLException e){
             System.err.println("Error while retrieving login info");
+            return "Authentication error";
         }
-        return "Authentification error";
     }
 
     public boolean RegisterRequest(String name, String last_name, String username, String password, String phone_number){

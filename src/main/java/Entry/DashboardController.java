@@ -5,15 +5,12 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 
 import java.net.Socket;
-import java.sql.Array;
-import java.sql.Time;
-import java.util.ArrayList;
+import java.util.Map;
 
 public class DashboardController {
 
@@ -33,8 +30,10 @@ public class DashboardController {
 
             if(ssize != ser.getClients().size()) {
                 logsFlow.getChildren().removeAll(logsFlow.getChildren());
-                for (Socket client : ser.getClients()) {
-                    updateLogs(client.toString());
+                for (Map.Entry<String, Socket> entry : ser.getClients().entrySet()) {
+                    String key = entry.getKey();
+                    Socket value = entry.getValue();
+                    updateLogs("Client ID: " + key + "Socket: " + value);
                 }
             }
 
