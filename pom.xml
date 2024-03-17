@@ -91,6 +91,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <finalName>Server API</finalName>
                             <shadedArtifactAttached>true</shadedArtifactAttached>
                             <transformers>
                                 <transformer implementation=

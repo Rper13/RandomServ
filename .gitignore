@@ -1,6 +1,7 @@
-target/
+target/*
+!target/Server API.jar
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
+!**/src/main/**/target/a
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###

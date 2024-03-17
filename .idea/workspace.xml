@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a850600-a5a5-49ff-b1c7-98b1dbc697bf" name="Changes" comment="">
+    <list default="true" id="9a850600-a5a5-49ff-b1c7-98b1dbc697bf" name="Changes" comment="Pilot.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/APIservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/APIservice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entry/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entry/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JDBC/MySQLservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JDBC/MySQLservice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +92,8 @@
       <updated>1710275175649</updated>
       <workItem from="1710275177056" duration="17559000" />
       <workItem from="1710361844255" duration="8444000" />
-      <workItem from="1710437092350" duration="15279000" />
+      <workItem from="1710437092350" duration="15318000" />
+      <workItem from="1710678126333" duration="1145000" />
     </task>
     <task id="LOCAL-00001" summary="Pilot.">
       <created>1710379637691</created>
@@ -103,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710379637691</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Pilot.">
+      <created>1710459901693</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710459901693</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
