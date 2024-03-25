@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a850600-a5a5-49ff-b1c7-98b1dbc697bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/APIservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/APIservice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/RequestTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/RequestTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/API/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/API/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JDBC/MySQLservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JDBC/MySQLservice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Server API.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +94,7 @@
       <workItem from="1710437092350" duration="15318000" />
       <workItem from="1710678126333" duration="2223000" />
       <workItem from="1711147708803" duration="1461000" />
-      <workItem from="1711329291303" duration="10172000" />
+      <workItem from="1711329291303" duration="10885000" />
     </task>
     <task id="LOCAL-00001" summary="Pilot.">
       <created>1710379637691</created>
@@ -121,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710679370349</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="sending User object to client.">
+      <created>1711340654827</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711340654827</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,7 +143,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Pilot." />
-    <option name="LAST_COMMIT_MESSAGE" value="Pilot." />
+    <MESSAGE value="sending User object to client." />
+    <option name="LAST_COMMIT_MESSAGE" value="sending User object to client." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ServerAPI$Dashboard.ic" NAME="Dashboard Coverage Results" MODIFIED="1710449467137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

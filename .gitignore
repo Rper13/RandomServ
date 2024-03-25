@@ -1,5 +1,5 @@
 target/*
-!target/Server API.jar
+!target/ServerAPI.jar
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/a
 !**/src/test/**/target/
