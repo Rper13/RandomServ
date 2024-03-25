@@ -4,7 +4,8 @@ public enum RequestTypes {
 
     MESSAGE(""),
     LOGIN("API:LOGIN:"),
-    REGISTER("API:REGISTER:");
+    REGISTER("API:REGISTER:"),
+    USER_INFO("API:USER_INFO:");
 
     private final String identifier;
 

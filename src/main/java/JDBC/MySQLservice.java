@@ -1,5 +1,7 @@
 package JDBC;
 
+import Objects.User;
+
 import java.sql.*;
 
 public class MySQLservice {
@@ -44,7 +46,7 @@ public class MySQLservice {
         try {
 
             PreparedStatement statement = connection.prepareStatement("" +
-                    "SELECT username, password " +
+                    "SELECT id, username, password " +
                     "FROM chat.users " +
                     "WHERE username = ?");
 
@@ -93,6 +95,33 @@ public class MySQLservice {
         }
         return inserted > 0;
     }
+
+public User retrieveUser(String username){
+
+        User user = new User();
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT id, name, last_name, username, password, phone_number FROM chat.users WHERE username = ?");
+
+            preparedStatement.setString(1, username);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()){
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setLast_name(resultSet.getString("last_name"));
+                user.setUsername(resultSet.getString("username"));
+                user.setPassword(resultSet.getString("password"));
+                user.setPhone(resultSet.getString("phone_number"));
+            }
+
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    return user;
+}
 
 
 

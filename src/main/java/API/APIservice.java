@@ -1,25 +1,24 @@
 package API;
 
 import JDBC.MySQLservice;
+import Objects.User;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 
 public class APIservice {
 
-    private static DataInputStream reader = null;
-    private static DataOutputStream writer = null;
+    private static ObjectInputStream reader = null;
+    private static ObjectOutputStream writer = null;
 
     public static synchronized void handleClient(Socket clientSocket){
 
         try{
             if(reader == null)
-                reader = new DataInputStream(clientSocket.getInputStream());
+                reader = new ObjectInputStream(new DataInputStream(clientSocket.getInputStream()));
 
             if(writer == null)
-                writer = new DataOutputStream(clientSocket.getOutputStream());
+                writer = new ObjectOutputStream(new DataOutputStream(clientSocket.getOutputStream()));
 
             String request = reader.readUTF();
 
@@ -36,6 +35,13 @@ public class APIservice {
                 case REGISTER -> {
                     request = request.substring(13);
                     writer.writeUTF(processRegisterRequest(request));
+                    writer.flush();
+                }
+
+                case USER_INFO -> {
+                    request = request.substring(14);
+                    User user = MySQLservice.getInstance().retrieveUser(request);
+                    writer.writeObject(user);
                     writer.flush();
                 }
 
@@ -62,12 +68,15 @@ public class APIservice {
         if(req.length() >= 13){
             if (req.startsWith("API:REGISTER:")) return RequestTypes.REGISTER;
         }
+        if(req.length() >= 14){
+            if(req.startsWith("API:USER_INFO:")) return RequestTypes.USER_INFO;
+        }
 
         return RequestTypes.MESSAGE;
     }
 
     private static String processLoginRequest(String request){
-        if(request.length() == 1) return "Empty String";
+
         String[] parts = request.split(",");
         String username = parts[0];
         String password = parts[1];
@@ -92,7 +101,7 @@ public class APIservice {
         MySQLservice SQL = MySQLservice.getInstance();
 
         boolean r = SQL.RegisterRequest(name,last_name,username,password,phone_number);
-        String res = (r) ? "Succesfully Registered" : "Registration Failed";
+        String res = (r) ? "Successfully Registered" : "Registration Failed";
 
         SQL.closeConn();
 

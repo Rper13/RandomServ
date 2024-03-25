@@ -11,13 +11,14 @@ public class Service {
 
     private static Service instance = null;
 
-    private Map<String,Socket> clients = new HashMap<>();
+    private final HashMap<String,Socket> clients = new HashMap<>();
 
     private Thread serverThread;
     private Thread checkSockets;
     private ServerSocket serverSocket;
 
     private Service(){}
+    /**initializes server. setting up to accept connections.*/
     public void startServer(){
 
         final Object mapLocker = new Object();
@@ -82,10 +83,14 @@ public class Service {
         checkSockets.start();
     }
 
-    public Map<String,Socket> getClients() {
+    /**@return Map of clients*/
+    public HashMap<String,Socket> getClients() {
         return clients;
     }
 
+    /**
+     * we have single service instance running across the entire jar
+     * @return service instance. */
     public static synchronized Service getInstance(){
         if(instance == null){
             instance = new Service();
@@ -93,6 +98,7 @@ public class Service {
         return instance;
     }
 
+    /** stops server from running*/
     public void stop() {
         if (instance != null) {
             instance = null;
